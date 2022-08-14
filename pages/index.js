@@ -1,6 +1,8 @@
 import Head from 'next/head';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import Navbar from '../components/Navbar';
+import Refine from '../components/Refine';
+import Featured from '../components/Featured';
 
 export default function Home() {
   return (
@@ -8,7 +10,11 @@ export default function Home() {
       <Head>
         <title>GameGrid</title>
       </Head>
-      <Navbar />
+      <Flex direction='column' gap='10'>
+        <Navbar />
+        <Refine />
+        <Featured />
+      </Flex>
     </Box>
   );
 }
