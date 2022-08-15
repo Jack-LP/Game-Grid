@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '@fontsource/poppins';
 import theme from '../theme';
 import { ChakraProvider } from '@chakra-ui/react';
 
