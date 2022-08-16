@@ -2,15 +2,18 @@ import React from 'react';
 import GameCard from './GameCard';
 import { Container } from '@chakra-ui/react';
 
-function getDisplayGames(arr, num) {
-  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+const GameGrid = ({ gameData }) => {
+  function getDisplayGames(arr, num) {
+    const shuffled = [...arr].sort(() => 0.5 - Math.random());
 
-  return shuffled.slice(0, num);
-}
+    return shuffled.slice(0, num);
+  }
 
-const GameGrid = () => {
-  // const displayGames = getDisplayGames(gameData, 6);
-  // const gameCards = displayGames.map((card) => <GameCard />);
+  const displayGames = getDisplayGames(gameData, 30);
+  const gameCards = displayGames.map((card) => (
+    <GameCard cardImg={card.thumbnail} cardTitle={card.title} key={card.id} />
+  ));
+
   return (
     <Container
       maxW='1200px'
@@ -18,7 +21,9 @@ const GameGrid = () => {
       flexWrap='wrap'
       p='0'
       justifyContent='space-between'
-    ></Container>
+    >
+      {gameCards}
+    </Container>
   );
 };
 

@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+module.exports = {
+  reactStrictMode: false,
   swcMinify: true,
-}
-
-module.exports = nextConfig
+  images: {
+    domains: ['www.freetogame.com'],
+  },
+};
