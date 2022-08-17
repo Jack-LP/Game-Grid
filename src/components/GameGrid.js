@@ -3,11 +3,10 @@ import GameCard from './GameCard';
 import { Container } from '@chakra-ui/react';
 
 const GameGrid = ({ gameData }) => {
-  function getDisplayGames(arr, num) {
+  const getDisplayGames = (arr, num) => {
     const shuffled = [...arr].sort(() => 0.5 - Math.random());
-
     return shuffled.slice(0, num);
-  }
+  };
 
   const displayGames = getDisplayGames(gameData, 30);
   const gameCards = displayGames.map((card) => (
@@ -26,5 +25,4 @@ const GameGrid = ({ gameData }) => {
     </Container>
   );
 };
-
 export default GameGrid;

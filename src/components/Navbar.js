@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Container } from '@chakra-ui/react';
+import { Box, Text, Container, Input, Flex } from '@chakra-ui/react';
 
 const Navbar = () => {
   return (
@@ -12,8 +12,10 @@ const Navbar = () => {
         p='3'
       >
         <Text fontSize='2xl'>Game Grid</Text>
-        <Text fontSize='xl'>Browse</Text>
-        <Text fontSize='xl'>Search</Text>
+        <Flex justifyContent='flex-end' alignItems='center' gap='4'>
+          <Text fontSize='xl'>Browse</Text>
+          <Input variant='filled' placeholder='Search' maxW='60%' />
+        </Flex>
       </Container>
     </Box>
   );
