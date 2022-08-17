@@ -47,7 +47,7 @@ const Featured = ({ gameData }) => {
         ) : (
           <Image
             src={
-              featuredGameData.screenshots[0].image
+              featuredGameData.screenshots[0].image !== undefined
                 ? featuredGameData.screenshots[0].image
                 : featuredGameData.thumbnail
             }

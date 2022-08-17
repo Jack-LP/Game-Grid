@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Text, Container, Input, Flex } from '@chakra-ui/react';
+import { Box, Text, Container, Input, Flex, Button } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -9,13 +10,20 @@ const Navbar = () => {
         alignItems='center'
         justifyContent='space-between'
         maxW='1200px'
-        p='3'
+        paddingInline='0'
+        paddingBlock='3'
       >
         <Text fontSize='2xl'>Game Grid</Text>
-        <Flex justifyContent='flex-end' alignItems='center' gap='4'>
-          <Text fontSize='xl'>Browse</Text>
-          <Input variant='filled' placeholder='Search' maxW='60%' />
+        <Flex alignItems='center' gap='4'>
+          <Link to='/'>
+            <Button variant='ghost'>Home</Button>
+          </Link>
+          <Link to='/browse'>
+            <Button variant='ghost'>Browse</Button>
+          </Link>
+          <Button variant='ghost'>Random</Button>
         </Flex>
+        <Input variant='filled' placeholder='Search' width='200px' />
       </Container>
     </Box>
   );
