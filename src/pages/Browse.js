@@ -4,6 +4,7 @@ import { Box, Flex, Spinner } from '@chakra-ui/react';
 import Navbar from '../components/Navbar';
 import Refine from '../components/Refine';
 import GameGrid from '../components/GameGrid';
+import FilterList from '../components/browse/FilterList';
 
 const Browse = () => {
   const [gameData, setGameData] = useState([]);
@@ -31,17 +32,20 @@ const Browse = () => {
   }, []);
 
   return isLoading ? (
-    <Box>
-      <Flex direction='column' gap='10'>
-        <Navbar />
-        <Spinner alignSelf='center' mb='600px' />
-      </Flex>
+    <Box
+      w='100vw'
+      h='100vh'
+      display='flex'
+      justifyContent='center'
+      alignItems='center'
+    >
+      <Spinner size='xl' />
     </Box>
   ) : (
-    <Box bgColor='gray.700'>
+    <Box bgColor='gray.700' mt='100px'>
       <Flex direction='column' gap='10'>
         <Navbar />
-        <Refine />
+        <FilterList />
         <GameGrid gameData={gameData} displayCount={359} />
       </Flex>
     </Box>

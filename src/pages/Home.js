@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Box, Flex, Spinner } from '@chakra-ui/react';
 import Navbar from '../components/Navbar';
 import GameGrid from '../components/GameGrid';
-import Featured from '../components/Featured';
+import Featured from '../components/home/Featured';
+import Banner from '../components/home/Banner';
 
 const Home = () => {
   const [gameData, setGameData] = useState([]);
@@ -31,17 +32,21 @@ const Home = () => {
   }, []);
 
   return isLoading ? (
+    <Box
+      w='100vw'
+      h='100vh'
+      display='flex'
+      justifyContent='center'
+      alignItems='center'
+    >
+      <Spinner size='xl' />
+    </Box>
+  ) : (
     <Box>
       <Flex direction='column' gap='10'>
         <Navbar />
-        <Spinner alignSelf='center' mb='600px' />
-      </Flex>
-    </Box>
-  ) : (
-    <Box bgColor='gray.700'>
-      <Flex direction='column' gap='10'>
-        <Navbar />
         <Featured gameData={gameData} />
+        <Banner />
         <GameGrid gameData={gameData} displayCount={30} />
       </Flex>
     </Box>

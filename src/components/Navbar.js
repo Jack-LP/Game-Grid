@@ -4,7 +4,15 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <Box bg='gray.800'>
+    <Box
+      bg='#1A202C90'
+      shadow='lg'
+      position='fixed'
+      width='100%'
+      top='0'
+      backdropFilter='auto'
+      backdropBlur='8px'
+    >
       <Container
         display='flex'
         alignItems='center'
