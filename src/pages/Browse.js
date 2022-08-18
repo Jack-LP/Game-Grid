@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Box, Flex, Spinner } from '@chakra-ui/react';
-import Navbar from '../components/Navbar';
-import Refine from '../components/Refine';
-import GameGrid from '../components/GameGrid';
+import { Box, Flex, Spinner, Container } from '@chakra-ui/react';
+import Navbar from '../components/common/Navbar';
+import GameGrid from '../components/common/GameGrid';
 import FilterList from '../components/browse/FilterList';
+import Banner from '../components/home/Banner';
 
 const Browse = () => {
   const [gameData, setGameData] = useState([]);
@@ -31,6 +31,10 @@ const Browse = () => {
     fetchGames();
   }, []);
 
+  const filterGames = () => {
+    setGameData(gameData.filter((game) => game.platform === 'PC (Windows)'));
+  };
+
   return isLoading ? (
     <Box
       w='100vw'
@@ -42,11 +46,16 @@ const Browse = () => {
       <Spinner size='xl' />
     </Box>
   ) : (
-    <Box bgColor='gray.700' mt='100px'>
+    <Box mt='100px'>
       <Flex direction='column' gap='10'>
         <Navbar />
-        <FilterList />
-        <GameGrid gameData={gameData} displayCount={359} />
+        <Banner />
+        <Container maxW='1200px' p='0'>
+          <Flex gap='4'>
+            <FilterList filterGames={filterGames} />
+            <GameGrid gameData={gameData} displayCount={359} thumbSize={300} />
+          </Flex>
+        </Container>
       </Flex>
     </Box>
   );

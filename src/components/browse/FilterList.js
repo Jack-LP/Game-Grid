@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
+import Filter from './Filter';
 
-const FilterList = () => {
+const FilterList = ({ filterGames }) => {
   return (
-    <Container maxW='1200px' p='0'>
-      filterlist
-    </Container>
+    <Flex flexDirection='column' gap='4'>
+      <Filter title='Platform' filterGames={filterGames} />
+    </Flex>
   );
 };
 

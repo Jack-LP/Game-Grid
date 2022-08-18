@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Box, Flex, Spinner } from '@chakra-ui/react';
-import Navbar from '../components/Navbar';
-import GameGrid from '../components/GameGrid';
+import Navbar from '../components/common/Navbar';
+import GameGrid from '../components/common/GameGrid';
 import Featured from '../components/home/Featured';
 import Banner from '../components/home/Banner';
 
