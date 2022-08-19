@@ -6,7 +6,6 @@ import {
   faChevronRight,
   faCircle,
   faCircleDot,
-  faCircleLeft,
 } from '@fortawesome/free-solid-svg-icons';
 
 const ImageSlider = ({ images }) => {
@@ -70,6 +69,9 @@ const ImageSlider = ({ images }) => {
       </Flex>
       <Image
         src={images[current].image}
+        alt='Screenshot could not be loaded.'
+        textAlign='center'
+        lineHeight='440px'
         rounded='md'
         fit='cover'
         w='100%'

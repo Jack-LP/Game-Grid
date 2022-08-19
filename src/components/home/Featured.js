@@ -10,7 +10,7 @@ import {
   VStack,
   Skeleton,
 } from '@chakra-ui/react';
-import ImageSlider from './ImageSlider';
+import ImageSlider from '../common/ImageSlider';
 
 const Featured = ({ gameData }) => {
   let featuredGame = gameData[Math.floor(Math.random() * gameData.length)];

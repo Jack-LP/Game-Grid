@@ -16,6 +16,7 @@ const GameGrid = ({ gameData, displayCount, thumbSize }) => {
       key={card.id}
       thumbSize={thumbSize}
       platform={card.platform}
+      cardId={card.id}
     />
   ));
 
