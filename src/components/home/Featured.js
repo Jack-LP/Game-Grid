@@ -10,6 +10,7 @@ import {
   VStack,
   Skeleton,
 } from '@chakra-ui/react';
+import ImageSlider from './ImageSlider';
 
 const Featured = ({ gameData }) => {
   let featuredGame = gameData[Math.floor(Math.random() * gameData.length)];
@@ -45,17 +46,17 @@ const Featured = ({ gameData }) => {
           <Skeleton width='800px' height='450px' />
         ) : (
           <Box w='800px' h='450px'>
-            <Image
-              src={
-                featuredGameData.screenshots.length === 0
-                  ? featuredGameData.thumbnail
-                  : featuredGameData.screenshots[0].image
-              }
-              rounded='md'
-              fit='cover'
-              w='100%'
-              h='100%'
-            />
+            {featuredGameData.screenshots.length === 0 ? (
+              <Image
+                src={featuredGameData.thumbnail}
+                rounded='md'
+                fit='cover'
+                w='100%'
+                h='100%'
+              />
+            ) : (
+              <ImageSlider images={featuredGameData.screenshots} />
+            )}
           </Box>
         )}
       </Box>

@@ -8,6 +8,7 @@ const Navbar = () => {
       bg='#1A202C90'
       shadow='lg'
       position='fixed'
+      zIndex='1'
       width='100%'
       top='0'
       backdropFilter='auto'

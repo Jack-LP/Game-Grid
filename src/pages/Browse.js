@@ -31,10 +31,6 @@ const Browse = () => {
     fetchGames();
   }, []);
 
-  const filterGames = () => {
-    setGameData(gameData.filter((game) => game.platform === 'PC (Windows)'));
-  };
-
   return isLoading ? (
     <Box
       w='100vw'
@@ -52,8 +48,8 @@ const Browse = () => {
         <Banner />
         <Container maxW='1200px' p='0'>
           <Flex gap='4'>
-            <FilterList filterGames={filterGames} />
-            <GameGrid gameData={gameData} displayCount={359} thumbSize={300} />
+            <FilterList />
+            <GameGrid gameData={gameData} displayCount={50} thumbSize={300} />
           </Flex>
         </Container>
       </Flex>
