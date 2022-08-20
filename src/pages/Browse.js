@@ -1,35 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Box, Flex, Spinner, Container } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import useDocumentTitle from '../useDocumentTitle';
+import { Box, Flex, Spinner, Container, Button } from '@chakra-ui/react';
 import Navbar from '../components/common/Navbar';
 import GameGrid from '../components/common/GameGrid';
 import FilterList from '../components/browse/FilterList';
 import Banner from '../components/home/Banner';
 
-const Browse = () => {
-  const [gameData, setGameData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const Browse = ({ gameData, isLoading }) => {
+  const [filteredData, setFilteredData] = useState(gameData);
 
-  useEffect(() => {
-    const fetchGames = async () => {
-      const result = await axios(
-        `https://free-to-play-games-database.p.rapidapi.com/api/games`,
-        {
-          method: 'GET',
-          url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
-          headers: {
-            'X-RapidAPI-Key':
-              '8ebe34813bmsh6e275fbf0f07504p1b7a10jsne2f604a9e8cb',
-            'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
-          },
-        }
+  const updateFilters = (checked, filterName, filterValue) => {
+    if (checked) {
+      setFilteredData(
+        gameData.filter(function (obj) {
+          return obj.filterName === filterValue;
+        })
       );
-      setGameData(result.data);
-      setIsLoading(false);
-    };
+    }
+  };
 
-    fetchGames();
-  }, []);
+  useDocumentTitle('Game Grid | Browse');
 
   return isLoading ? (
     <Box
@@ -48,8 +38,12 @@ const Browse = () => {
         <Banner />
         <Container maxW='1200px' p='0'>
           <Flex gap='4'>
-            <FilterList />
-            <GameGrid gameData={gameData} displayCount={50} thumbSize={300} />
+            <FilterList updateFilters={updateFilters} />
+            <GameGrid
+              gameData={filteredData}
+              displayCount={10}
+              thumbSize={300}
+            />
           </Flex>
         </Container>
       </Flex>

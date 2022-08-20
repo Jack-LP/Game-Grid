@@ -11,7 +11,6 @@ import {
 
 const Requirements = ({ currentGameData }) => {
   const requirements = currentGameData.minimum_system_requirements;
-  console.log(requirements);
 
   return (
     <Flex bgColor='gray.800' rounded='md' p='4'>

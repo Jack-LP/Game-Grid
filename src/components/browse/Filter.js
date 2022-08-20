@@ -1,18 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Flex, Text, CheckboxGroup, Checkbox } from '@chakra-ui/react';
 
-const platforms = [
-  {
-    id: 1,
-    name: 'PC (Windows)',
-  },
-  {
-    id: 2,
-    name: 'Web Browser',
-  },
-];
-
-const Filter = ({ title }) => {
+const Filter = ({ title, filters, updateFilters }) => {
+  const filterTitle = title.toLowerCase();
   return (
     <Flex
       direction='column'
@@ -24,8 +14,13 @@ const Filter = ({ title }) => {
     >
       <Text fontSize='xl'>{title}</Text>
       <CheckboxGroup>
-        {platforms.map((item) => (
-          <Checkbox key={item.id}>{item.name}</Checkbox>
+        {filters.map((item) => (
+          <Checkbox
+            key={Math.floor(Math.random() * 1000)}
+            onChange={(e) => updateFilters(e.target.checked, filterTitle, item)}
+          >
+            {item}
+          </Checkbox>
         ))}
       </CheckboxGroup>
     </Flex>

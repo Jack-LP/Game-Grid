@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import useDocumentTitle from '../useDocumentTitle';
 import axios from 'axios';
-import {
-  Box,
-  Flex,
-  Spinner,
-  Container,
-  Grid,
-  GridItem,
-} from '@chakra-ui/react';
+import { Box, Flex, Spinner, Container, Grid } from '@chakra-ui/react';
 import Navbar from '../components/common/Navbar';
 import GameBanner from '../components/game/GameBanner';
 import Title from '../components/game/Title';
@@ -44,6 +38,10 @@ const Game = () => {
 
     fetchCurrentGame();
   }, []);
+
+  useDocumentTitle(
+    currentGameData.title ? `${currentGameData.title}` : 'Game Grid'
+  );
 
   return isLoading ? (
     <Box
