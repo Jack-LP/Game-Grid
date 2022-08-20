@@ -14,8 +14,13 @@ const Title = ({ currentGameData }) => {
       <Flex height='20px' alignItems='center'>
         {platform === 'Windows' ? (
           <FontAwesomeIcon icon={faComputer} />
-        ) : (
+        ) : platform === 'Web Browser' ? (
           <FontAwesomeIcon icon={faGlobe} />
+        ) : (
+          <Flex alignItems='center' gap='2'>
+            <FontAwesomeIcon icon={faComputer} />
+            <FontAwesomeIcon icon={faGlobe} />
+          </Flex>
         )}
         <Divider orientation='vertical' marginInline='2' />
         <Text>{genre}</Text>

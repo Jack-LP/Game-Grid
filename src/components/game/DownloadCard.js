@@ -14,12 +14,13 @@ const DownloadCard = ({ currentGameData }) => {
       rounded='md'
     >
       <Tag>FREE</Tag>
-      <Link href={currentGameData.game_url} target='_blank'>
+      <Link href={currentGameData.game_url} target='_blank' w='100%'>
         <Button
           display='flex'
           alignItems='center'
           gap='2'
           textDecoration='none'
+          w='100%'
         >
           <FontAwesomeIcon icon={faDownload} />
           Download Now

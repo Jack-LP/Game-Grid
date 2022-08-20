@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Box, Flex, Spinner, Container } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Spinner,
+  Container,
+  Grid,
+  GridItem,
+} from '@chakra-ui/react';
 import Navbar from '../components/common/Navbar';
 import GameBanner from '../components/game/GameBanner';
 import Title from '../components/game/Title';
 import DownloadCard from '../components/game/DownloadCard';
 import ImageSlider from '../components/common/ImageSlider';
 import InfoCard from '../components/game/InfoCard';
+import Description from '../components/game/Description';
+import Requirements from '../components/game/Requirements';
 
 const Game = () => {
   const [currentGameData, setCurrentGameData] = useState([]);
@@ -53,14 +62,14 @@ const Game = () => {
         <GameBanner currentGameData={currentGameData} />
         <Container maxW='1200px' p='0'>
           <Flex direction='column' gap='4'>
-            <Flex justifyContent='space-between' alignItems='center'>
+            <Grid templateColumns='1.5fr 1fr' gap='4'>
               <Title currentGameData={currentGameData} />
               <DownloadCard currentGameData={currentGameData} />
-            </Flex>
-            <Flex justifyContent='space-between' gap='4'>
               <ImageSlider images={currentGameData.screenshots} />
               <InfoCard currentGameData={currentGameData} />
-            </Flex>
+              <Description currentGameData={currentGameData} />
+              <Requirements currentGameData={currentGameData} />
+            </Grid>
           </Flex>
         </Container>
       </Flex>

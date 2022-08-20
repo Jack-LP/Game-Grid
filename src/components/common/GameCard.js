@@ -7,12 +7,14 @@ import { faGlobe, faComputer } from '@fortawesome/free-solid-svg-icons';
 const GameCard = ({ cardImg, cardTitle, thumbSize, platform, cardId }) => {
   return (
     <Box display='flex' flexDirection='column' mb='8'>
-      <Image
-        src={cardImg}
-        alt='Game Thumbnail'
-        roundedTop='10'
-        width={thumbSize}
-      />
+      <Link to={`game/${cardId}`}>
+        <Image
+          src={cardImg}
+          alt='Game Thumbnail'
+          roundedTop='10'
+          width={thumbSize}
+        />
+      </Link>
       <Flex
         justifyContent='space-between'
         p='2'
@@ -29,10 +31,18 @@ const GameCard = ({ cardImg, cardTitle, thumbSize, platform, cardId }) => {
             {cardTitle}
           </Text>
         </Link>
+
         <Flex alignItems='center' gap='2'>
-          <FontAwesomeIcon
-            icon={platform === 'PC (Windows)' ? faComputer : faGlobe}
-          />
+          {platform === 'PC (Windows)' ? (
+            <FontAwesomeIcon icon={faComputer} />
+          ) : platform === 'Web Browser' ? (
+            <FontAwesomeIcon icon={faGlobe} />
+          ) : (
+            <Flex alignItems='center' gap='2'>
+              <FontAwesomeIcon icon={faComputer} />
+              <FontAwesomeIcon icon={faGlobe} />
+            </Flex>
+          )}
           <Tag>FREE</Tag>
         </Flex>
       </Flex>

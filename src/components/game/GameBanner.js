@@ -3,14 +3,9 @@ import { Image, Box } from '@chakra-ui/react';
 
 const GameBanner = ({ currentGameData }) => {
   return (
-    <Box overflow='hidden' marginInline='-5px'>
+    <Box overflow='hidden'>
       <Image
-        src={
-          // currentGameData.screenshots.length === 0
-          //   ? currentGameData.thumbnail
-          //   : currentGameData.screenshots[0].image
-          currentGameData.thumbnail
-        }
+        src={currentGameData.thumbnail}
         width='100%'
         height='45vh'
         fit='cover'

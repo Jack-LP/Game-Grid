@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -10,6 +11,8 @@ import {
   VStack,
   Skeleton,
 } from '@chakra-ui/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComputer, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import ImageSlider from '../common/ImageSlider';
 
 const Featured = ({ gameData }) => {
@@ -67,10 +70,34 @@ const Featured = ({ gameData }) => {
           <Skeleton width='100%' height='80px' />
         </VStack>
       ) : (
-        <Flex direction='column' gap='4' alignItems='flex-start' pl='10'>
-          <Text fontSize='3xl'>
-            {isLoading ? 'Loading...' : featuredGameData.title}
-          </Text>
+        <Flex
+          direction='column'
+          gap='4'
+          alignItems='flex-start'
+          ml='10'
+          p='4'
+          bgColor='gray.800'
+          rounded='md'
+        >
+          <Flex direction='column' gap='2'>
+            <Link to={`game/${featuredGameData.id}`}>
+              <Text fontSize='3xl'>
+                {isLoading ? 'Loading...' : featuredGameData.title}
+              </Text>
+            </Link>
+            <Flex>
+              {featuredGameData.platform === 'Windows' ? (
+                <FontAwesomeIcon icon={faComputer} />
+              ) : featuredGameData.platform === 'Web Browser' ? (
+                <FontAwesomeIcon icon={faGlobe} />
+              ) : (
+                <Flex alignItems='center' gap='2'>
+                  <FontAwesomeIcon icon={faComputer} />
+                  <FontAwesomeIcon icon={faGlobe} />
+                </Flex>
+              )}
+            </Flex>
+          </Flex>
           <Text color='whiteAlpha.800' fontSize='xl'>
             Now Available
           </Text>

@@ -54,7 +54,7 @@ const ImageSlider = ({ images }) => {
         position='absolute'
         bottom='0'
         left='50%'
-        transform='translate(-50%, -50%)'
+        transform='translate(-50%, -75%)'
         gap='4'
       >
         {images.map((image, index) => (

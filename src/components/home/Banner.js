@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Text, Button } from '@chakra-ui/react';
+import { Container, Text, Button, Highlight } from '@chakra-ui/react';
 
 const Banner = () => {
   return (
@@ -16,7 +16,20 @@ const Banner = () => {
       paddingBlock='4'
       rounded='md'
     >
-      <Text fontSize='3xl'>Browse hundreds of free games</Text>
+      <Text fontSize='3xl'>
+        <Highlight
+          query='free'
+          styles={{
+            color: 'white',
+            bg: 'blue.800',
+            rounded: 'full',
+            px: '4',
+            py: '1',
+          }}
+        >
+          Browse hundreds of free games
+        </Highlight>
+      </Text>
       <Link to='/browse'>
         <Button variant='outline'>Take me there</Button>
       </Link>
