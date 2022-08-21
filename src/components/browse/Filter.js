@@ -1,29 +1,13 @@
 import React from 'react';
-import { Flex, Text, CheckboxGroup, Checkbox } from '@chakra-ui/react';
+import { Checkbox } from '@chakra-ui/react';
 
-const Filter = ({ title, filters, updateFilters }) => {
-  const filterTitle = title.toLowerCase();
+const Filter = ({ filterKey, filterValue, updateFilters }) => {
   return (
-    <Flex
-      direction='column'
-      bg='gray.800'
-      gap='4'
-      p='4'
-      rounded='md'
-      minW='200px'
+    <Checkbox
+      onChange={(e) => updateFilters(e.target.checked, filterKey, filterValue)}
     >
-      <Text fontSize='xl'>{title}</Text>
-      <CheckboxGroup>
-        {filters.map((item) => (
-          <Checkbox
-            key={Math.floor(Math.random() * 1000)}
-            onChange={(e) => updateFilters(e.target.checked, filterTitle, item)}
-          >
-            {item}
-          </Checkbox>
-        ))}
-      </CheckboxGroup>
-    </Flex>
+      {filterValue}
+    </Checkbox>
   );
 };
 

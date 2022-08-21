@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import useDocumentTitle from '../useDocumentTitle';
-import { Box, Flex, Spinner, Container, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Spinner,
+  Container,
+  Button,
+  filter,
+} from '@chakra-ui/react';
 import Navbar from '../components/common/Navbar';
 import GameGrid from '../components/common/GameGrid';
-import FilterList from '../components/browse/FilterList';
+import FilterSection from '../components/browse/FilterSection';
 import Banner from '../components/home/Banner';
 
 const Browse = ({ gameData, isLoading }) => {
   const [filteredData, setFilteredData] = useState(gameData);
 
-  const updateFilters = (checked, filterName, filterValue) => {
-    if (checked) {
-      setFilteredData(
-        gameData.filter(function (obj) {
-          return obj.filterName === filterValue;
-        })
-      );
-    }
+  const updateFilters = (checked, filterKey, filterValue) => {
+    console.table({
+      checked: checked,
+      filterKey: filterKey,
+      filterValue: filterValue,
+    });
   };
 
   useDocumentTitle('Game Grid | Browse');
@@ -38,7 +43,7 @@ const Browse = ({ gameData, isLoading }) => {
         <Banner />
         <Container maxW='1200px' p='0'>
           <Flex gap='4'>
-            <FilterList updateFilters={updateFilters} />
+            <FilterSection updateFilters={updateFilters} />
             <GameGrid
               gameData={filteredData}
               displayCount={10}
