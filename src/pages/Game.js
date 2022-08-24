@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import useDocumentTitle from '../useDocumentTitle';
 import axios from 'axios';
 import { Box, Flex, Spinner, Container, Grid } from '@chakra-ui/react';
-import Navbar from '../components/common/Navbar';
 import GameBanner from '../components/game/GameBanner';
 import Title from '../components/game/Title';
 import DownloadCard from '../components/game/DownloadCard';
@@ -56,7 +55,6 @@ const Game = () => {
   ) : (
     <Box>
       <Flex direction='column' gap='10'>
-        <Navbar />
         <GameBanner currentGameData={currentGameData} />
         <Container maxW='1200px' p='0'>
           <Flex direction='column' gap='4'>

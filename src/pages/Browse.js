@@ -1,31 +1,14 @@
 import React, { useState } from 'react';
 import useDocumentTitle from '../useDocumentTitle';
-import {
-  Box,
-  Flex,
-  Spinner,
-  Container,
-  Button,
-  filter,
-} from '@chakra-ui/react';
-import Navbar from '../components/common/Navbar';
+import { Box, Flex, Spinner, Container } from '@chakra-ui/react';
 import GameGrid from '../components/common/GameGrid';
-import FilterSection from '../components/browse/FilterSection';
-import Banner from '../components/home/Banner';
+import GenreFilterCard from '../components/browse/GenreFilterCard';
 
 const Browse = ({ gameData, isLoading }) => {
-  const [filteredData, setFilteredData] = useState(gameData);
-
-  const updateFilters = (checked, filterKey, filterValue) => {
-    console.table({
-      checked: checked,
-      filterKey: filterKey,
-      filterValue: filterValue,
-    });
-  };
+  const [filteredGameData, setFilteredGameData] = useState(gameData);
+  const [filter, setFilter] = useState();
 
   useDocumentTitle('Game Grid | Browse');
-
   return isLoading ? (
     <Box
       w='100vw'
@@ -39,14 +22,28 @@ const Browse = ({ gameData, isLoading }) => {
   ) : (
     <Box mt='100px'>
       <Flex direction='column' gap='10'>
-        <Navbar />
-        <Banner />
         <Container maxW='1200px' p='0'>
           <Flex gap='4'>
-            <FilterSection updateFilters={updateFilters} />
+            <GenreFilterCard
+              setFilter={setFilter}
+              filter={filter}
+              setFilteredGameData={setFilteredGameData}
+              gameData={gameData}
+              filterValues={[
+                'MMORPG',
+                'Shooter',
+                'MOBA',
+                'Battle Royale',
+                'Strategy',
+                'Racing',
+                'Fighting',
+                'Social',
+                'Sports',
+              ]}
+            />
             <GameGrid
-              gameData={filteredData}
-              displayCount={10}
+              gameData={filteredGameData}
+              displayCount={359}
               thumbSize={300}
             />
           </Flex>

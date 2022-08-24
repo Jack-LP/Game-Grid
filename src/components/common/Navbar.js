@@ -1,11 +1,15 @@
 import React from 'react';
-import { Box, Text, Container, Input, Flex, Button } from '@chakra-ui/react';
+import { Box, Container, Input, Flex, Button, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import gameGridLogo from './img/gameGridLogo.svg';
 
 const Navbar = () => {
+  const gameData = JSON.parse(localStorage.getItem('gameData'));
+  const randomGameId = gameData[Math.floor(Math.random() * gameData.length)].id;
+
   return (
     <Box
-      bg='#1A202C90'
+      bg='#1c1f2390'
       shadow='lg'
       position='fixed'
       zIndex='1'
@@ -22,17 +26,25 @@ const Navbar = () => {
         paddingInline='0'
         paddingBlock='3'
       >
-        <Text fontSize='2xl'>Game Grid</Text>
-        <Flex alignItems='center' gap='4'>
+        <Flex gap='4'>
           <Link to='/'>
             <Button variant='ghost'>Home</Button>
           </Link>
           <Link to='/browse'>
             <Button variant='ghost'>Browse</Button>
           </Link>
-          <Button variant='ghost'>Random</Button>
+          <Link to={`game/${randomGameId}`}>
+            <Button variant='ghost'>Random</Button>
+          </Link>
         </Flex>
-        <Input variant='filled' placeholder='Search' width='200px' />
+        <Image maxW='300px' src={gameGridLogo} />
+        <Input
+          maxW='300px'
+          placeholder='Search'
+          focusBorderColor='purple.700'
+          variant='filled'
+          rounded='full'
+        />
       </Container>
     </Box>
   );

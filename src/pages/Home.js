@@ -1,6 +1,5 @@
 import useDocumentTitle from '../useDocumentTitle';
 import { Box, Flex, Spinner } from '@chakra-ui/react';
-import Navbar from '../components/common/Navbar';
 import GameGrid from '../components/common/GameGrid';
 import Featured from '../components/home/Featured';
 import Banner from '../components/home/Banner';
@@ -21,7 +20,6 @@ const Home = ({ gameData, isLoading }) => {
   ) : (
     <Box>
       <Flex direction='column' gap='10'>
-        <Navbar />
         <Featured gameData={gameData} />
         <Banner />
         <GameGrid gameData={gameData} displayCount={30} />

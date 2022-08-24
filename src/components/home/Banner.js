@@ -21,7 +21,7 @@ const Banner = () => {
           query='free'
           styles={{
             color: 'white',
-            bg: 'blue.800',
+            bg: 'purple.700',
             rounded: 'full',
             px: '4',
             py: '1',
@@ -31,7 +31,9 @@ const Banner = () => {
         </Highlight>
       </Text>
       <Link to='/browse'>
-        <Button variant='outline'>Take me there</Button>
+        <Button variant='outline' border='2px'>
+          Take me there
+        </Button>
       </Link>
     </Container>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/common/Navbar';
 import Home from './pages/Home';
 import Browse from './pages/Browse';
 import Game from './pages/Game';
@@ -34,7 +35,8 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <>
+      <Navbar />
       <Routes>
         <Route
           path='/'
@@ -54,9 +56,9 @@ function App() {
             />
           }
         />
-        <Route path='browse/game/:gameId' element={<Game />} />
+        <Route path='/game/:gameId' element={<Game />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 

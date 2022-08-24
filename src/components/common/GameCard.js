@@ -7,7 +7,7 @@ import { faGlobe, faComputer } from '@fortawesome/free-solid-svg-icons';
 const GameCard = ({ cardImg, cardTitle, thumbSize, platform, cardId }) => {
   return (
     <Box display='flex' flexDirection='column' mb='8'>
-      <Link to={`browse/game/${cardId}`}>
+      <Link to={`/game/${cardId}`}>
         <Image
           src={cardImg}
           alt='Game Thumbnail'
@@ -18,10 +18,10 @@ const GameCard = ({ cardImg, cardTitle, thumbSize, platform, cardId }) => {
       <Flex
         justifyContent='space-between'
         p='2'
-        bgColor='gray.800'
+        bgColor='charcoal.800'
         roundedBottom='10'
       >
-        <Link to={`browse/game/${cardId}`}>
+        <Link to={`/${cardId}`}>
           <Text
             maxW='210px'
             whiteSpace='nowrap'

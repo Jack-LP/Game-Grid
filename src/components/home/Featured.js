@@ -76,7 +76,7 @@ const Featured = ({ gameData }) => {
           alignItems='flex-start'
           ml='10'
           p='4'
-          bgColor='gray.800'
+          bgColor='charcoal.800'
           rounded='md'
         >
           <Flex direction='column' gap='2'>

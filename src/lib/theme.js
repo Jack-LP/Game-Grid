@@ -6,6 +6,12 @@ const config = {
 };
 
 const theme = extendTheme({
+  colors: {
+    charcoal: {
+      700: '#21252c',
+      800: '#1c1f23',
+    },
+  },
   fonts: {
     heading: 'Inter, sans-serif',
     body: 'Inter, sans-serif',
@@ -13,7 +19,7 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: 'gray.700',
+        bg: 'charcoal.700',
       },
     },
   },

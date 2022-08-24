@@ -13,7 +13,7 @@ const Requirements = ({ currentGameData }) => {
   const requirements = currentGameData.minimum_system_requirements;
 
   return (
-    <Flex bgColor='gray.800' rounded='md' p='4'>
+    <Flex bgColor='charcoal.800' rounded='md' p='4'>
       <List spacing='4'>
         <ListItem fontSize='xl' mb='2'>
           Minimum system requirements

@@ -7,7 +7,7 @@ const DownloadCard = ({ currentGameData }) => {
   return (
     <Flex
       direction='column'
-      bgColor='gray.800'
+      bgColor='charcoal.800'
       p='4'
       gap='2'
       alignItems='flex-start'

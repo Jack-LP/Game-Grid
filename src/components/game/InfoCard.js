@@ -11,7 +11,7 @@ const InfoCard = ({ currentGameData }) => {
   const developer = currentGameData.developer;
 
   return (
-    <Flex bgColor='gray.800' rounded='md' p='4' direction='column'>
+    <Flex bgColor='charcoal.800' rounded='md' p='4' direction='column'>
       <List spacing='4' display='flex' flexDirection='column'>
         <ListItem fontSize='xl' alignSelf='center' mb='2'>
           {title}
