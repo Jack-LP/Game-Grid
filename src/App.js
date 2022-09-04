@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/common/Navbar';
+import Footer from './components/common/Footer';
 import Home from './pages/Home';
 import Browse from './pages/Browse';
 import Game from './pages/Game';
@@ -58,6 +59,7 @@ function App() {
         />
         <Route path='/game/:gameId' element={<Game />} />
       </Routes>
+      <Footer />
     </>
   );
 }

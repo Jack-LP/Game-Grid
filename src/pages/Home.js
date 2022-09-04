@@ -22,7 +22,7 @@ const Home = ({ gameData, isLoading }) => {
       <Flex direction='column' gap='10'>
         <Featured gameData={gameData} />
         <Banner />
-        <GameGrid gameData={gameData} displayCount={30} />
+        <GameGrid gameData={gameData} randomGames={true} />
       </Flex>
     </Box>
   );

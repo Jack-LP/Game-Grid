@@ -1,18 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Flex, Text, Tag, Image } from '@chakra-ui/react';
+import { Box, Flex, Text, Tag } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faComputer } from '@fortawesome/free-solid-svg-icons';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import './lazyLoadImage.css';
 
 const GameCard = ({ cardImg, cardTitle, thumbSize, platform, cardId }) => {
   return (
-    <Box display='flex' flexDirection='column' mb='8'>
+    <Box display='flex' flexDirection='column' mb='4'>
       <Link to={`/game/${cardId}`}>
-        <Image
+        <LazyLoadImage
+          effect='blur'
+          wrapperClassName='lazyLoadImage'
           src={cardImg}
-          alt='Game Thumbnail'
-          roundedTop='10'
           width={thumbSize}
+          style={{
+            borderTopLeftRadius: 10,
+            borderTopRightRadius: 10,
+          }}
         />
       </Link>
       <Flex
@@ -21,7 +28,7 @@ const GameCard = ({ cardImg, cardTitle, thumbSize, platform, cardId }) => {
         bgColor='charcoal.800'
         roundedBottom='10'
       >
-        <Link to={`/${cardId}`}>
+        <Link to={`/game/${cardId}`}>
           <Text
             maxW='210px'
             whiteSpace='nowrap'

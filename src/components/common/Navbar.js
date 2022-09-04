@@ -5,7 +5,6 @@ import gameGridLogo from './img/gameGridLogo.svg';
 
 const Navbar = () => {
   const gameData = JSON.parse(localStorage.getItem('gameData'));
-  const randomGameId = gameData[Math.floor(Math.random() * gameData.length)].id;
 
   return (
     <Box
@@ -33,13 +32,10 @@ const Navbar = () => {
           <Link to='/browse'>
             <Button variant='ghost'>Browse</Button>
           </Link>
-          <Link to={`game/${randomGameId}`}>
-            <Button variant='ghost'>Random</Button>
-          </Link>
         </Flex>
         <Image maxW='300px' src={gameGridLogo} />
         <Input
-          maxW='300px'
+          width='auto'
           placeholder='Search'
           focusBorderColor='purple.700'
           variant='filled'

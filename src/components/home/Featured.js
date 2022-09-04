@@ -80,7 +80,7 @@ const Featured = ({ gameData }) => {
           rounded='md'
         >
           <Flex direction='column' gap='2'>
-            <Link to={`browse/game/${featuredGameData.id}`}>
+            <Link to={`game/${featuredGameData.id}`}>
               <Text fontSize='3xl'>
                 {isLoading ? 'Loading...' : featuredGameData.title}
               </Text>

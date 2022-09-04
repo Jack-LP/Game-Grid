@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import useDocumentTitle from '../useDocumentTitle';
 import { Box, Flex, Spinner, Container } from '@chakra-ui/react';
-import GameGrid from '../components/common/GameGrid';
 import GenreFilterCard from '../components/browse/GenreFilterCard';
+import Search from '../components/browse/Search';
+import GameGrid from '../components/common/GameGrid';
 
 const Browse = ({ gameData, isLoading }) => {
   const [filteredGameData, setFilteredGameData] = useState(gameData);
-  const [filter, setFilter] = useState();
+  const [searchValue, setSearchValue] = useState('');
+
+  const updateSearchValue = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const updateFilteredGameData = (filter) => {
+    filter === 'All'
+      ? setFilteredGameData(gameData)
+      : setFilteredGameData(gameData.filter((game) => game.genre === filter));
+  };
 
   useDocumentTitle('Game Grid | Browse');
   return isLoading ? (
@@ -20,36 +31,49 @@ const Browse = ({ gameData, isLoading }) => {
       <Spinner size='xl' />
     </Box>
   ) : (
-    <Box mt='100px'>
-      <Flex direction='column' gap='10'>
-        <Container maxW='1200px' p='0'>
-          <Flex gap='4'>
-            <GenreFilterCard
-              setFilter={setFilter}
-              filter={filter}
-              setFilteredGameData={setFilteredGameData}
-              gameData={gameData}
-              filterValues={[
-                'MMORPG',
-                'Shooter',
-                'MOBA',
-                'Battle Royale',
-                'Strategy',
-                'Racing',
-                'Fighting',
-                'Social',
-                'Sports',
-              ]}
-            />
-            <GameGrid
-              gameData={filteredGameData}
-              displayCount={359}
-              thumbSize={300}
-            />
-          </Flex>
-        </Container>
+    <Container
+      mt='100px'
+      maxW='1200px'
+      p='0'
+      display='flex'
+      flexDir='column'
+      gap='4'
+      minH='100vh'
+    >
+      <Flex gap='4'>
+        <Flex direction='column' gap='4'>
+          <Search updateSearchValue={updateSearchValue} />
+          <GenreFilterCard
+            setFilteredGameData={setFilteredGameData}
+            updateFilteredGameData={updateFilteredGameData}
+            gameData={gameData}
+            filterValues={[
+              'MMORPG',
+              'Shooter',
+              'MOBA',
+              'Battle Royale',
+              'Strategy',
+              'Racing',
+              'Fighting',
+              'Social',
+              'Sports',
+            ]}
+          />
+        </Flex>
+        <GameGrid
+          gameData={filteredGameData.filter((val) => {
+            if (searchValue === '') {
+              return val;
+            } else if (
+              val.title.toLowerCase().includes(searchValue.toLowerCase())
+            ) {
+              return val;
+            }
+          })}
+          thumbSize={300}
+        />
       </Flex>
-    </Box>
+    </Container>
   );
 };
 
