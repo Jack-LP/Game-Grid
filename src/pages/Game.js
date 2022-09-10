@@ -56,17 +56,15 @@ const Game = () => {
     <Box>
       <Flex direction='column' gap='10'>
         <GameBanner currentGameData={currentGameData} />
-        <Container maxW='1200px' p='0'>
-          <Flex direction='column' gap='4'>
-            <Grid templateColumns='1.5fr 1fr' gap='4'>
-              <Title currentGameData={currentGameData} />
-              <DownloadCard currentGameData={currentGameData} />
-              <ImageSlider images={currentGameData.screenshots} />
-              <InfoCard currentGameData={currentGameData} />
-              <Description currentGameData={currentGameData} />
-              <Requirements currentGameData={currentGameData} />
-            </Grid>
-          </Flex>
+        <Container maxW={['90vw', null, null, '1200px']} p='0'>
+          <Grid templateColumns={['100%', null, null, '1.5fr 1fr']} gap='4'>
+            <Title currentGameData={currentGameData} />
+            <DownloadCard currentGameData={currentGameData} />
+            <ImageSlider images={currentGameData.screenshots} />
+            <InfoCard currentGameData={currentGameData} />
+            <Description currentGameData={currentGameData} />
+            <Requirements currentGameData={currentGameData} />
+          </Grid>
         </Container>
       </Flex>
     </Box>

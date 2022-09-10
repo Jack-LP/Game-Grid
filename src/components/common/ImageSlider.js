@@ -27,7 +27,7 @@ const ImageSlider = ({ images }) => {
   };
 
   return (
-    <Box position='relative' w='800px' h='450px'>
+    <Box position='relative' w='100%' h='100%'>
       <Button
         position='absolute'
         top='0'

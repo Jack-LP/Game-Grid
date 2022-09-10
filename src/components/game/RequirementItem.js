@@ -10,7 +10,7 @@ const RequirementItem = ({ requirements, title, spec, icon }) => {
         <Text>{title}</Text>
       </Flex>
       <Divider width='50%' />
-      <Text color='whiteAlpha.700'>{spec ? spec : 'N/A'}</Text>
+      <Text color='whiteAlpha.700'>{!spec || spec === '?' ? 'N/A' : spec}</Text>
     </ListItem>
   ) : (
     <ListItem display='flex' flexDirection='column' gap='2'>

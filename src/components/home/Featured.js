@@ -42,13 +42,26 @@ const Featured = ({ gameData }) => {
     fetchFeaturedGame();
   }, []);
 
+  console.log(featuredGameData);
+
   return (
-    <Container maxW='1200px' display='flex' p='0' mt='100px'>
-      <Box width='800px' height='450px'>
+    <Container
+      maxW={['90vw', null, null, '1200px']}
+      p='0'
+      mt='100px'
+      gap={['5', null, null, '10']}
+      display='flex'
+      flexDirection={['column', null, null, 'row']}
+      alignItems={['center', null, null, 'normal']}
+    >
+      <Box>
         {isLoading ? (
-          <Skeleton width='800px' height='450px' />
+          <Skeleton width={['100vw', null, null, '800px']} height='450px' />
         ) : (
-          <Box w='800px' h='450px'>
+          <Box
+            width={['90vw', null, null, '800px']}
+            height={['200px', '350px', '400px', '450px']}
+          >
             {featuredGameData.screenshots.length === 0 ? (
               <Image
                 src={featuredGameData.thumbnail}
@@ -74,10 +87,10 @@ const Featured = ({ gameData }) => {
           direction='column'
           gap='4'
           alignItems='flex-start'
-          ml='10'
           p='4'
           bgColor='charcoal.800'
           rounded='md'
+          width='100%'
         >
           <Flex direction='column' gap='2'>
             <Link to={`game/${featuredGameData.id}`}>

@@ -33,14 +33,11 @@ const Browse = ({ gameData, isLoading }) => {
   ) : (
     <Container
       mt='100px'
-      maxW='1200px'
+      maxW={['90vw', null, null, '1200px']}
       p='0'
-      display='flex'
-      flexDir='column'
-      gap='4'
       minH='100vh'
     >
-      <Flex gap='4'>
+      <Flex gap='4' direction={['column', null, null, 'row']}>
         <Flex direction='column' gap='4'>
           <Search updateSearchValue={updateSearchValue} />
           <GenreFilterCard

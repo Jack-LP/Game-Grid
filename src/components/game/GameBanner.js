@@ -13,7 +13,7 @@ const GameBanner = ({ currentGameData }) => {
           backgroundPosition: 'center',
         }}
         width='100vw'
-        height='45vh'
+        height={['25vh', '30vh', '40vh', '45vh']}
         filter='auto'
         blur='5px'
       ></Box>

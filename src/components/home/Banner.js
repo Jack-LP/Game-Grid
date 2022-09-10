@@ -5,7 +5,7 @@ import { Container, Text, Button, Highlight } from '@chakra-ui/react';
 const Banner = () => {
   return (
     <Container
-      maxW='1200px'
+      maxW={['90vw', null, null, '1200px']}
       p='0'
       borderBlock='2px solid'
       borderColor='whiteAlpha.200'
@@ -16,7 +16,7 @@ const Banner = () => {
       paddingBlock='4'
       rounded='md'
     >
-      <Text fontSize='3xl'>
+      <Text fontSize='3xl' textAlign='center'>
         <Highlight
           query='free'
           styles={{
