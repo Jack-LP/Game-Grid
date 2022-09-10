@@ -40,7 +40,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route
-          path='home'
+          path='/'
           element={
             <Home
               gameData={JSON.parse(localStorage.getItem('gameData'))}
