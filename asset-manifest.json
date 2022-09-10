@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.1569aa82.css",
-    "main.js": "/static/js/main.083814da.js",
+    "main.js": "/static/js/main.0fd5d8af.js",
     "static/media/gameGridLogo.svg": "/static/media/gameGridLogo.3e879e23b82ce6b6f5690a937346b53e.svg",
     "static/media/gameGridLogoSmall.svg": "/static/media/gameGridLogoSmall.37fe388287b30b30fa15acd68fc9d109.svg",
     "index.html": "/index.html",
     "main.1569aa82.css.map": "/static/css/main.1569aa82.css.map",
-    "main.083814da.js.map": "/static/js/main.083814da.js.map"
+    "main.0fd5d8af.js.map": "/static/js/main.0fd5d8af.js.map"
   },
   "entrypoints": [
     "static/css/main.1569aa82.css",
-    "static/js/main.083814da.js"
+    "static/js/main.0fd5d8af.js"
   ]
 }
