@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useDocumentTitle from '../useDocumentTitle';
 import axios from 'axios';
-import { Box, Flex, Spinner, Container, Grid } from '@chakra-ui/react';
+import { Box, Flex, Spinner, Container, Grid, Image } from '@chakra-ui/react';
 import GameBanner from '../components/game/GameBanner';
 import Title from '../components/game/Title';
 import DownloadCard from '../components/game/DownloadCard';
@@ -60,7 +60,17 @@ const Game = () => {
           <Grid templateColumns={['100%', null, null, '1.5fr 1fr']} gap='4'>
             <Title currentGameData={currentGameData} />
             <DownloadCard currentGameData={currentGameData} />
-            <ImageSlider images={currentGameData.screenshots} />
+            {currentGameData.screenshots.length === 0 ? (
+              <Image
+                src={currentGameData.thumbnail}
+                rounded='md'
+                fit='cover'
+                w='100%'
+                h='100%'
+              />
+            ) : (
+              <ImageSlider images={currentGameData.screenshots} />
+            )}
             <InfoCard currentGameData={currentGameData} />
             <Description currentGameData={currentGameData} />
             <Requirements currentGameData={currentGameData} />

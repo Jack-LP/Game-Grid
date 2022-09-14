@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 import gameGridLogo from './img/gameGridLogo.svg';
 import gameGridLogoSmall from './img/gameGridLogoSmall.svg';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import SearchDropdown from './SearchDropdown';
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -57,12 +58,7 @@ const Navbar = () => {
             <DrawerBody>
               <Flex gap='4' direction='column' alignItems='center' p='4'>
                 <Image maxW='300px' src={gameGridLogo} p='2' />
-                <Input
-                  placeholder='Search'
-                  focusBorderColor='purple.700'
-                  variant='filled'
-                  rounded='full'
-                />
+                <SearchDropdown displayWidths={'flex'} marginLeft={0} />
                 <Link to='/'>
                   <Button variant='ghost'>Home</Button>
                 </Link>
@@ -108,14 +104,9 @@ const Navbar = () => {
           fontSize='25px'
           marginLeft='auto'
         />
-        <Input
-          ml='auto'
-          width='200px'
-          placeholder='Search'
-          focusBorderColor='purple.700'
-          variant='filled'
-          rounded='full'
-          display={['none', null, null, 'block']}
+        <SearchDropdown
+          displayWidths={['none', null, null, 'block']}
+          marginLeft={'auto'}
         />
       </Container>
     </Box>

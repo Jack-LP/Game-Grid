@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faComputer } from '@fortawesome/free-solid-svg-icons';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import './lazyLoadImage.css';
+import './css/lazyLoadImage.css';
 
 const GameCard = ({ cardImg, cardTitle, thumbSize, platform, cardId }) => {
   return (

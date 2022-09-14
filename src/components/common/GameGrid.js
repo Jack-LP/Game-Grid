@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '@chakra-ui/react';
+import { Container, useTab } from '@chakra-ui/react';
 import GameCard from './GameCard';
 
 const GameGrid = ({ gameData, thumbSize, randomGames }) => {

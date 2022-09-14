@@ -42,8 +42,6 @@ const Featured = ({ gameData }) => {
     fetchFeaturedGame();
   }, []);
 
-  console.log(featuredGameData);
-
   return (
     <Container
       maxW={['90vw', null, null, '1200px']}
