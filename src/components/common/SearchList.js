@@ -2,13 +2,15 @@ import React from 'react';
 import { Flex, Text, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-const SearchList = ({ searchData, searchResults, toggle, setToggle }) => {
+const SearchList = ({ searchData, searchResults, toggle, setToggle, top }) => {
   return (
     <Flex
       direction='column'
       position='absolute'
+      top={top}
       backgroundColor='charcoal.800'
       p='4'
+      zIndex='1'
       rounded='md'
       display={
         searchData === '' || !toggle || searchResults.length === 0

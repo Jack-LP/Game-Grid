@@ -4,13 +4,13 @@ import SearchList from './SearchList';
 
 const gameData = JSON.parse(localStorage.getItem('gameData'));
 
-const SearchDropdown = ({ displayWidths, marginLeft }) => {
+const SearchDropdown = ({ displayWidths, marginLeft, width, top }) => {
   const [toggle, setToggle] = useState(true);
   const [searchData, setSearchData] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   return (
-    <Flex ml={marginLeft} width='200px' display={displayWidths}>
+    <Flex ml={marginLeft} width={width} display={displayWidths}>
       <Input
         placeholder='Search'
         focusBorderColor='purple.700'
@@ -31,6 +31,7 @@ const SearchDropdown = ({ displayWidths, marginLeft }) => {
         searchResults={searchResults}
         toggle={toggle}
         setToggle={setToggle}
+        top={top}
       />
     </Flex>
   );

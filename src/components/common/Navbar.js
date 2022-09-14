@@ -57,13 +57,22 @@ const Navbar = () => {
             </DrawerHeader>
             <DrawerBody>
               <Flex gap='4' direction='column' alignItems='center' p='4'>
-                <Image maxW='300px' src={gameGridLogo} p='2' />
-                <SearchDropdown displayWidths={'flex'} marginLeft={0} />
-                <Link to='/'>
-                  <Button variant='ghost'>Home</Button>
+                <Image maxW='300px' src={gameGridLogo} p='2' mb='4' />
+                <SearchDropdown
+                  displayWidths={'flex'}
+                  marginLeft={0}
+                  width={'240px'}
+                  top={'192px'}
+                />
+                <Link to='/' style={{ width: '100%' }}>
+                  <Button variant='solid' w='100%'>
+                    Home
+                  </Button>
                 </Link>
-                <Link to='/browse'>
-                  <Button variant='ghost'>Browse</Button>
+                <Link to='/browse' style={{ width: '100%' }}>
+                  <Button variant='solid' w='100%'>
+                    Browse
+                  </Button>
                 </Link>
               </Flex>
             </DrawerBody>
@@ -107,6 +116,7 @@ const Navbar = () => {
         <SearchDropdown
           displayWidths={['none', null, null, 'block']}
           marginLeft={'auto'}
+          width={'200px'}
         />
       </Container>
     </Box>
