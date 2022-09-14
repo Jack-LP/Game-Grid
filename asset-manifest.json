@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Game-Grid/static/css/main.1569aa82.css",
-    "main.js": "/Game-Grid/static/js/main.d93b7278.js",
+    "main.js": "/Game-Grid/static/js/main.a67f96ab.js",
     "static/media/gameGridLogo.svg": "/Game-Grid/static/media/gameGridLogo.3e879e23b82ce6b6f5690a937346b53e.svg",
     "static/media/gameGridLogoSmall.svg": "/Game-Grid/static/media/gameGridLogoSmall.37fe388287b30b30fa15acd68fc9d109.svg",
     "index.html": "/Game-Grid/index.html",
     "main.1569aa82.css.map": "/Game-Grid/static/css/main.1569aa82.css.map",
-    "main.d93b7278.js.map": "/Game-Grid/static/js/main.d93b7278.js.map"
+    "main.a67f96ab.js.map": "/Game-Grid/static/js/main.a67f96ab.js.map"
   },
   "entrypoints": [
     "static/css/main.1569aa82.css",
-    "static/js/main.d93b7278.js"
+    "static/js/main.a67f96ab.js"
   ]
 }
