@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import {
   Box,
   Container,
-  Input,
   Flex,
   Button,
   Image,
