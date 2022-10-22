@@ -5,7 +5,7 @@ import SearchList from './SearchList';
 const gameData = JSON.parse(localStorage.getItem('gameData'));
 
 const SearchDropdown = ({ displayWidths, marginLeft, width, top }) => {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const [searchData, setSearchData] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
