@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ChakraProvider theme={theme}>
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-    <HashRouter>
+    <HashRouter basename='/React'>
       <App />
     </HashRouter>
   </ChakraProvider>
